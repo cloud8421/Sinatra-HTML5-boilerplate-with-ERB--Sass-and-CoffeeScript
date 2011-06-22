@@ -14,6 +14,8 @@ By default it uses ERB for templates. You can change that, however make sure to 
 - [Coffeescript][5]
 - [Sass][6]
 
+Please note that there are some other similar projects that add some more features that may make it easier for you to prototype. This one is meant to be a production template with no visual additions. A clean slate.
+
 # HOW TO
 
 Download the package or fetch the repository, but don't clone it. You want a fresh start.
@@ -51,7 +53,7 @@ I'd advise you to install Coffee as a NPM module, as it gives you a bit more fle
 
 Configuration is stock, so most of the files are in the `/public` folder.
 
-The main `application.coffee` and `application.scss` files are into the `views` folder as they need to be processed before being served. This is defined in the `my_sinatra_app.rb` file right after the `require` statements.
+The main `script.coffee` and `application.scss` files are respectively into the `coffee` and `scss` folders into the `views` folder as they need to be processed before being served. This is defined in the `my_sinatra_app.rb` file right after the `require` statements. The pattern is simple: if you need a `myname.css` file, then create a `myname.scss` file. In your layout, reference to the .js and .css files, not the .coffee and .scss sources.
 
 The `index.html` boilerplate file has been renamed `layout.erb`, the only difference with the stock boilerplate file is the presence of the `<%= yield %>` in the main container.
 
@@ -59,6 +61,12 @@ The `index.html` boilerplate file has been renamed `layout.erb`, the only differ
 
 As a default, the Gemfile contains a group that you should uncomment if you want to deploy on Heroku. Deployment is standard, [here's the guide to do that][http://devcenter.heroku.com/articles/rack#frameworks]. You should be able to avoid configuration and just need to push the repo.
 I haven't tested it on other environments, but it should work fine. If you experience some weird behaviours related to SASS or Coffeescript, your best shot is to compile them on your machine and deploy them as static files in the public directory. Doing this makes the project a completely stock Sinatra app, so that should be easy to debug.
+
+# THANKS AND LINKS
+
+[Froots's Sinatra HTML5 boilerplate][10] inspired me.
+
+I decided to make my own simply because I don't use HAML and didn't want to have any kind of visual. But his project is cool, check it out if you need that stuff.
 
 [1]: http://html5boilerplate.com/
 [2]: http://sass-lang.com/
@@ -69,3 +77,4 @@ I haven't tested it on other environments, but it should work fine. If you exper
 [7]: https://rvm.beginrescueend.com/
 [8]: http://rtomayko.github.com/shotgun/
 [9]: http://jashkenas.github.com/coffee-script/#installation
+[10]: https://github.com/froots/sinatra-heroku-boilerplate.

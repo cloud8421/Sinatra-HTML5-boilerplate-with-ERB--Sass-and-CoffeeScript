@@ -8,12 +8,12 @@ class MySinatraApp < Sinatra::Base
   set :root, File.dirname(__FILE__)
   
   #Needed for Coffeescript and SCSS
-  get '/js/script.js' do
-    coffee :application
+  get '/js/:script.js' do |script|
+    coffee :"coffee/#{script}"
   end
   
-  get '/css/application.css' do
-    scss :application
+  get '/css/:stylesheet.css' do |stylesheet|
+    scss :"scss/#{stylesheet}"
   end
 
   #Starting actual application
